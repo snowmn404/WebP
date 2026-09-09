@@ -1,29 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<title>나의 소개</title>
-<style>
-    body {background-color: linen; color: green; margin-left: 40px; margin-right: 40px;}
-    h3 {text-align: center; color: blue;}
-    hr {height: 5px; border: solid gray; background-color: grey;}
-    span {color: darkred; font-size: 20px;}
-</style>
-<script>
-    function show() {
-        document.getElementById("fig").src="Shrek.png";
-    }
-    function hide() {
-        document.getElementById("fig").src="";
-    }
-</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
-<h3 onmouseover="show()" onmouseout="hide()">슈렉</h3>
-<hr>
-<div><img id="fig" scr=""></div>
-저는 대한민국에서 태어나서 소프트웨어를 전공하는 학생입니다.
-제가 제일 좋아하는 과목은 <span>웹 프로그래밍</span>이고, 그 중에서도 
-<span>자바스크립트</span>를 제일 잘합니다..
+    나는 홍길동입니다.
 </body>
 </html>
