@@ -52,7 +52,7 @@
     <tbody>
         <tr>
             <td><img src="iphone img.jpeg"></td>
-            <td><img src="samsung img.jpeg"</td>
+            <td><img src="samsung img.jpeg"></td>
         </tr>
     </tbody>
 </table>
