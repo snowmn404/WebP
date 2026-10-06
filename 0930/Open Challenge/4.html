@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>소프트웨어 기술 선호에 관한 설문</title>
+    <link rel="stylesheet" href="style4.css">
+    <style>
+        body {
+            background-color: aliceblue;
+            font-family: "휴먼편지체", "Apple SD Gothic Neo", sans-serif;
+        }
+        h1 {
+            color: brown;
+            text-align: center;
+        }
+        form {
+            background-color: #d896a3;
+            padding: 15px;
+            margin-top: 10px;
+        }
+        footer {
+            background-color: orange;
+            border-radius: 10px;
+            padding: 5px 15px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+    <h1>설문지</h1>
+    소프트웨어 기술에 대한 의견을 듣습니다. 많은 참여 부탁드립니다.
+    <hr>
+    </header>
+    <section>
+    <form>
+        학년
+        <input type="radio" name="grade" value="1">1학년
+        <input type="radio" name="grade" value="2">2학년
+        <input type="radio" name="grade" value="3">3학년
+        <input type="radio" name="grade" value="4">4학년<br><br>
+        성별
+        <input type="radio" name="gender" value="1">남
+        <input type="radio" name="gender" value="2">여<br><br>
+        관심 분야 <select name="software">
+            <option value="1"selected>모바일 소프트웨어</option>
+            <option value="2">웹 소프트웨어</option>
+            <option value="3">게임 소프트웨어</option>
+            </select><br><br>
+        진로
+        <input type="checkbox" value="1">개발
+        <input type="checkbox" value="2">기획
+        <input type="checkbox" value="3">영업
+        <input type="checkbox" value="4">창업<br><br>
+        남기고 싶은 말<br>
+        <textarea cols="20" rows="5">
+글을 남겨주세요
+        </textarea><br>
+    </section>
+    <footer>
+    <p>Copyright 2022 by Kitae</p>
+    </form>
+    </footer>
+</body>
+</html>
