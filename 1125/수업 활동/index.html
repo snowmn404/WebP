@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>11월 25일 저녁 신청 받기</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eef2f7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: white;
+      width: 350px;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px #00000015;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 25px;
+      color: #345bb0;
+    }
+
+    label {
+      display: block;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 8px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+      font-size: 15px;
+    }
+
+    textarea {
+      height: 100px;
+      resize: vertical;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 25px;
+      background: #426dcc;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 17px;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      opacity: 0.6;
+    }
+
+    #error {
+      color: red;
+      font-size: 13px;
+    }
+
+    #success {
+      display: none;
+      text-align: center;
+      padding: 30px 0;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container" id="formArea">
+
+  <h1>11월 25일 저녁 신청 받기</h1>
+
+  <form id="applicationForm">
+
+    <label>이름</label>
+    <input type="text" id="name" placeholder="이름을 입력하세요" required maxlength="50">
+
+    <label>음식</label>
+    <input type="text" id="food" placeholder="먹고 싶은 음식" required maxlength="100">
+
+    <label>하고 싶은 말</label>
+    <textarea id="message" placeholder="하고 싶은 말을 입력하세요" maxlength="500"></textarea>
+
+    <button type="submit" id="submitButton">확인</button>
+
+    <p id="error"></p>
+
+  </form>
+</div>
+
+<div class="container" id="success">
+  <h2>답장 감사합니다.</h2>
+  <p>신청이 정상적으로 접수되었습니다.</p>
+</div>
+
+<script>
+  document.getElementById('applicationForm')
+    .addEventListener('submit', function(e) {
+
+    e.preventDefault();
+
+    const data = {
+      name: document.getElementById('name').value.trim(),
+      food: document.getElementById('food').value.trim(),
+      message: document.getElementById('message').value.trim()
+    };
+
+    const button = document.getElementById('submitButton');
+    const error = document.getElementById('error');
+
+    error.textContent = '';
+
+    if (!data.name || !data.food) {
+      error.textContent = '이름과 음식을 입력해 주세요.';
+      return;
+    }
+
+    button.disabled = true;
+    button.textContent = '접수 중...';
+
+    google.script.run
+      .withSuccessHandler(function() {
+
+        document.getElementById('formArea').style.display = 'none';
+        document.getElementById('success').style.display = 'block';
+
+      })
+      .withFailureHandler(function(err) {
+
+        button.disabled = false;
+        button.textContent = '확인';
+        error.textContent = err.message || '오류가 발생했습니다.';
+
+      })
+      .submitApplication(data);
+
+  });
+</script>
+
+</body>
+</html>
